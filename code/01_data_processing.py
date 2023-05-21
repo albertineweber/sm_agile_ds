@@ -111,4 +111,3 @@ consolidated_df.to_csv(
 
 # save current version
 consolidated_df.to_csv("%s/search_table.csv" % (path_intermediate), index=False)
-consolidated_df.to_excel("%s/search_table.xlsx" % (path_intermediate), index=False)
