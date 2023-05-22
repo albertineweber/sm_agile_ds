@@ -97,17 +97,23 @@ consolidated_df = pd.concat([df for df in dbs_dct.values()]).reset_index(drop=Tr
 consolidated_df["entry"] = consolidated_df.index + 1
 
 # save versioned dbs
-if not os.path.exists("%s/%s" % (path_intermediate, execution_version)):
-    os.makedirs("%s/%s" % (path_intermediate, execution_version))
+if not os.path.exists("%s/versioned/%s" % (path_intermediate, execution_version)):
+    os.makedirs("%s/versioned/%s" % (path_intermediate, execution_version))
 
 for db in dbs_dct:
     dbs_dct[db].to_csv(
-        "%s/%s/%s.csv" % (path_intermediate, execution_version, db), index=False
+        "%s/versioned/%s/%s.csv" % (path_intermediate, execution_version, db),
+        index=False,
+        encoding="utf-16",
     )
 
 consolidated_df.to_csv(
-    "%s/%s/search_table.csv" % (path_intermediate, execution_version), index=False
+    "%s/versioned/%s/search_table.csv" % (path_intermediate, execution_version),
+    index=False,
+    encoding="utf-16",
 )
 
 # save current version
-consolidated_df.to_csv("%s/search_table.csv" % (path_intermediate), index=False)
+consolidated_df.to_csv(
+    "%s/search_table.csv" % (path_intermediate), index=False, encoding="utf-16"
+)
