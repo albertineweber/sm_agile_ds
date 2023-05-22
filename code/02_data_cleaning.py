@@ -33,16 +33,19 @@ consolidated_df = consolidated_df.drop(["duplicated_title", "duplicated_doi"], a
 
 # create empty validation cols
 consolidated_df["metadata_exclusion_flag"] = np.nan
+consolidated_df["metadata_exclusion_criteria"] = np.nan
 consolidated_df["metadata_validation_date"] = np.nan
 consolidated_df["fulltext_exclusion_flag"] = np.nan
+consolidated_df["fulltext_exclusion_criteria"] = np.nan
 consolidated_df["fulltext_validation_date"] = np.nan
 
 # save versioned dbs
-if not os.path.exists("%s/%s" % (path_primary, execution_version)):
-    os.makedirs("%s/%s" % (path_primary, execution_version))
+if not os.path.exists("%s/versioned/%s" % (path_primary, execution_version)):
+    os.makedirs("%s/versioned/%s" % (path_primary, execution_version))
 
 consolidated_df.to_csv(
-    "%s/%s/cleaned_search_table.csv" % (path_primary, execution_version), index=False
+    "%s/versioned/%s/cleaned_search_table.csv" % (path_primary, execution_version),
+    index=False,
 )
 
 # save current version
