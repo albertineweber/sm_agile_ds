@@ -51,6 +51,11 @@ conditions = [
     consolidated_df["metadata_exclusion_flag"] == 1,
     consolidated_df["fulltext_exclusion_flag"] == 1,
 ]
+step_choices = [
+    "Duplicates filter",
+    "Metadata filter",
+    "Full-text filter",
+]
 criteria_choices = [
     "EC0 - Duplicated entry",
     consolidated_df["metadata_exclusion_criteria"],
@@ -62,6 +67,9 @@ dates_choices = [
     consolidated_df["fulltext_validation_date"],
 ]
 
+consolidated_df["exclusion_step"] = np.select(
+    conditions, step_choices, default="Not excluded"
+)
 consolidated_df["exclusion_criteria"] = np.select(
     conditions, criteria_choices, default="Not excluded"
 )
