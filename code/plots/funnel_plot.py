@@ -44,10 +44,10 @@ for db in complete_df["database"].unique():
         go.Funnel(
             name=db,
             y=[
-                "Step 1 - Before screening",
-                "Step 2 - Duplicates screening",
-                "Step 3 - Metadata screening",
-                "Step 4 - Full-text screening",
+                "Etapa 1 - Coleta de artigos",
+                "Etapa 2 - Remover duplicados",
+                "Etapa 3 - Filtro de metadados",
+                "Etapa 4 - Filtro de leitura",
             ],
             x=[step1, 0, 0, 0],
             textinfo="value",
@@ -72,10 +72,10 @@ step4 = step3 - len(filt_df[filt_df["exclusion_step"] == "Full-text filter"])
 fig.add_trace(
     go.Funnel(
         y=[
-            "Step 1 - Before screening",
-            "Step 2 - Duplicates screening",
-            "Step 3 - Metadata screening",
-            "Step 4 - Full-text screening",
+            "Etapa 1 - Coleta de artigos",
+            "Etapa 2 - Remover duplicados",
+            "Etapa 3 - Filtro de metadados",
+            "Etapa 4 - Filtro de leitura",
         ],
         x=[0, step2, step3, step4],
         textinfo="value",
