@@ -18,8 +18,8 @@ complete_df = pd.read_csv(
 
 # Create plot layout
 layout = go.Layout(
-    width=1600,
-    height=800,
+    width=1200,
+    height=600,
     template="plotly_white",
     font=dict(
         color="black",
@@ -44,10 +44,10 @@ for db in complete_df["database"].unique():
         go.Funnel(
             name=db,
             y=[
-                "Etapa 1 - Coleta de artigos",
-                "Etapa 2 - Remover duplicados",
-                "Etapa 3 - Filtro de metadados",
-                "Etapa 4 - Filtro de leitura",
+                "Após Etapa 1 - Coleta de artigos",
+                "Após Etapa 2 - Remover duplicados",
+                "Após Etapa 3 - Filtro de metadados",
+                "Após Etapa 4 - Filtro de leitura",
             ],
             x=[step1, 0, 0, 0],
             textinfo="value",
@@ -72,10 +72,10 @@ step4 = step3 - len(filt_df[filt_df["exclusion_step"] == "Full-text filter"])
 fig.add_trace(
     go.Funnel(
         y=[
-            "Etapa 1 - Coleta de artigos",
-            "Etapa 2 - Remover duplicados",
-            "Etapa 3 - Filtro de metadados",
-            "Etapa 4 - Filtro de leitura",
+            "Após Etapa 1 - Coleta de artigos",
+            "Após Etapa 2 - Remover duplicados",
+            "Após Etapa 3 - Filtro de metadados",
+            "Após Etapa 4 - Filtro de leitura",
         ],
         x=[0, step2, step3, step4],
         textinfo="value",
@@ -95,8 +95,8 @@ fig.add_annotation(
     showarrow=False,
     xref="paper",
     yref="paper",
-    x=0.99,
-    y=0.89,
+    x=1.00,
+    y=0.91,
     font=dict(
         color="black",
         size=22,  # can change the size of font here
