@@ -23,7 +23,7 @@ layout = go.Layout(
     template="plotly_white",
     font=dict(
         color="black",
-        size=22,  # can change the size of font here
+        size=28,  # can change the size of font here
         family="Times New Roman",
     ),
 )
@@ -81,7 +81,7 @@ fig.add_trace(
         textinfo="value",
         textfont=dict(
             color="black",
-            size=22,  # can change the size of font here
+            size=28,  # can change the size of font here
             family="Times New Roman",
         ),
         constraintext="outside",
@@ -95,11 +95,11 @@ fig.add_annotation(
     showarrow=False,
     xref="paper",
     yref="paper",
-    x=1.00,
+    x=1.02,
     y=0.91,
     font=dict(
         color="black",
-        size=22,  # can change the size of font here
+        size=24,  # can change the size of font here
         family="Times New Roman",
     ),
 )
